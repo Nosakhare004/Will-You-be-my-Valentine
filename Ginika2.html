@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ginika, Will You Be My Valentine? 💘</title>
+    <style>
+        :root {
+            --primary-pink: #ff69b4;  /* Hot pink */
+            --secondary-pink: #ffb6c1; /* Light pink */
+        }
+
+        body {
+            font-family: 'Arial', cursive;
+            background: linear-gradient(45deg, var(--primary-pink), var(--secondary-pink));
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-collage {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .photo-collage img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        /* Keep other CSS styles from previous version */
+        /* ... (button styles, animations, etc) ... */
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <h1>Ginika, Will You Be My Valentine? 💘</h1>
+        <div class="heart">🌹</div>
+
+        <!-- Photo Collage -->
+        <div class="photo-collage">
+            <img src="https://drive.google.com/uc?export=view&id=1zRqmeIyjZ3l1IwLWE-xYP4c1lM3OiwjQ" alt="Our special moment 1">
+            <img src="https://drive.google.com/uc?export=view&id=1Fmsb2RF-cF6ygQ24Zfa8cnhlSHXf395K" alt="Our special moment 2">
+            <img src="https://drive.google.com/uc?export=view&id=1XXDXceXoj7uPdVO7ZKB5fAGoYb4rs9kd" alt="Our special moment 3">
+            <img src="https://drive.google.com/uc?export=view&id=1IOQuMugRo8Ldcbo6oCEGbFVJKmRkjE1r" alt="Our special moment 4">
+        </div>
+
+        <p>Dear Ginika,</p>
+        <p>Your smile lights up my day, a warmth that makes my heart beat. 💖</p>
+        <p>In every moment, your presence feels right. With you, I'm home. 🏡</p>
+        <p>Thank you for sharing your beauty and awesomeness with me. 🌟</p>
+
+        <!-- Music Player -->
+        <div class="music-player">
+            <h3>Our Song: "Running (To You)" 🎶</h3>
+            <iframe style="border-radius:12px" 
+                    src="https://open.spotify.com/embed/track/5tC4aAQwrZ1H9Vb4f1K5oH?utm_source=generator" 
+                    width="100%" 
+                    height="152" 
+                    frameborder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy">
+            </iframe>
+        </div>
+
+        <div class="buttons">
+            <button id="yesBtn" onclick="handleResponse(true)">YES! 💝</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="handleResponse(false)">Umm...</button>
+        </div>
+    </div>
+
+    <!-- Keep original JavaScript -->
+    <script>
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-floating';
+                heart.innerHTML = '💖';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = Math.random() * 80 + '%';
+            noBtn.style.top = Math.random() * 80 + '%';
+        }
+
+        function handleResponse(response) {
+            const container = document.querySelector('.container');
+            if (response) {
+                container.innerHTML = `
+                    <h1>YAY! 💖🎉</h1>
+                    <div class="heart" style="font-size: 80px;">🥰</div>
+                    <p>You've made Nosakhare the happiest person alive! 🌟</p>
+                    <p>Can't wait to create more memories together! 💞</p>
+                    <p>Forever yours,<br>Nosakhare</p>
+                `;
+                createHearts();
+            } else {
+                container.innerHTML = `
+                    <h1>Nice Try! 😏</h1>
+                    <div class="heart" style="font-size: 80px;">💘</div>
+                    <p>This wasn't really a multiple choice question... 😅</p>
+                    <p>You're stuck with me! 💌</p>
+                    <button onclick="location.reload()">Okay, I accept! 💖</button>
+                `;
+            }
+        }
+
+        createHearts();
+    </script>
+</body>
+</html>
